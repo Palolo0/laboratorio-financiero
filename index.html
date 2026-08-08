@@ -1,0 +1,2060 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Mi laboratorio financiero</title>
+
+    <!-- Librería para las gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+<h1>💰 Mi laboratorio financiero</h1>
+
+
+<!-- ===================================================== -->
+<!-- INVERSIONES -->
+<!-- ===================================================== -->
+
+<h2>📊 Inversiones</h2>
+
+
+<!-- ===================================================== -->
+<!-- CARTERA 1 -->
+<!-- ===================================================== -->
+
+<h3>Inversión 1</h3>
+
+<label>Nombre:</label>
+
+<input
+    type="text"
+    id="nombre1"
+    value="Cartera diversificada"
+>
+
+<br><br>
+
+
+<label>Capital inicial (€):</label>
+
+<input
+    type="number"
+    id="inicial1"
+    value="10000"
+>
+
+<br><br>
+
+
+<label>Aportación (€):</label>
+
+<input
+    type="number"
+    id="aportacion1"
+    value="400"
+>
+
+<br><br>
+
+
+<label>Frecuencia:</label>
+
+<select id="frecuencia1">
+
+    <option
+        value="mensual"
+        selected
+    >
+        Mensual
+    </option>
+
+    <option value="anual">
+        Anual
+    </option>
+
+</select>
+
+<br><br>
+
+
+<label>Rentabilidad anual (%):</label>
+
+<input
+    type="number"
+    id="rentabilidad1"
+    value="5"
+>
+
+<br><br>
+
+
+<label>Límite de capital (€):</label>
+
+<input
+    type="number"
+    id="limite1"
+    value="0"
+>
+
+<p>
+    <small>0 = sin límite</small>
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- CARTERA 2 -->
+<!-- ===================================================== -->
+
+<h3>Inversión 2</h3>
+
+<label>Nombre:</label>
+
+<input
+    type="text"
+    id="nombre2"
+    value="Financial Partners"
+>
+
+<br><br>
+
+
+<label>Capital inicial (€):</label>
+
+<input
+    type="number"
+    id="inicial2"
+    value="6000"
+>
+
+<br><br>
+
+
+<label>Aportación (€):</label>
+
+<input
+    type="number"
+    id="aportacion2"
+    value="5000"
+>
+
+<br><br>
+
+
+<label>Frecuencia:</label>
+
+<select id="frecuencia2">
+
+    <option value="mensual">
+        Mensual
+    </option>
+
+    <option
+        value="anual"
+        selected
+    >
+        Anual
+    </option>
+
+</select>
+
+<br><br>
+
+
+<label>Rentabilidad anual (%):</label>
+
+<input
+    type="number"
+    id="rentabilidad2"
+    value="24"
+>
+
+<br><br>
+
+
+<label>Límite de capital (€):</label>
+
+<input
+    type="number"
+    id="limite2"
+    value="50000"
+>
+
+<p>
+    <small>
+        Una vez alcanzado el límite, los beneficios
+        no aumentan el capital de Financial Partners.
+    </small>
+</p>
+
+
+<br>
+
+
+<label>
+    % de beneficios que va a Cartera 1:
+</label>
+
+<input
+    type="number"
+    id="destino1"
+    value="100"
+    min="0"
+    max="100"
+>
+
+<p>
+    <small>
+        El resto irá a Cartera 3.
+    </small>
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- CARTERA 3 -->
+<!-- ===================================================== -->
+
+<h3>Inversión 3</h3>
+
+<label>Nombre:</label>
+
+<input
+    type="text"
+    id="nombre3"
+    value="Cuentas Remuneradas"
+>
+
+<br><br>
+
+
+<label>Capital inicial (€):</label>
+
+<input
+    type="number"
+    id="inicial3"
+    value="20000"
+>
+
+<br><br>
+
+
+<label>Aportación (€):</label>
+
+<input
+    type="number"
+    id="aportacion3"
+    value="0"
+>
+
+<br><br>
+
+
+<label>Frecuencia:</label>
+
+<select id="frecuencia3">
+
+    <option value="mensual">
+        Mensual
+    </option>
+
+    <option
+        value="anual"
+        selected
+    >
+        Anual
+    </option>
+
+</select>
+
+<br><br>
+
+
+<label>Rentabilidad anual (%):</label>
+
+<input
+    type="number"
+    id="rentabilidad3"
+    value="3.5"
+>
+
+<br><br>
+
+
+<label>Límite de capital (€):</label>
+
+<input
+    type="number"
+    id="limite3"
+    value="0"
+>
+
+<p>
+    <small>0 = sin límite</small>
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- INDEPENDENCIA FINANCIERA -->
+<!-- ===================================================== -->
+
+<h2>🎯 Independencia financiera</h2>
+
+
+<label>
+    Sueldo mensual deseado en euros de hoy (€):
+</label>
+
+<input
+    type="number"
+    id="sueldo"
+    value="2000"
+>
+
+<br><br>
+
+
+<label>
+    Inflación anual (%):
+</label>
+
+<input
+    type="number"
+    id="inflacion"
+    value="3"
+>
+
+<br><br>
+
+
+<label>
+    Años a simular:
+</label>
+
+<input
+    type="number"
+    id="anos"
+    value="20"
+>
+
+<br><br>
+
+
+<button onclick="calcular()">
+    CALCULAR
+</button>
+
+
+
+<!-- ===================================================== -->
+<!-- RESULTADOS -->
+<!-- ===================================================== -->
+
+<h2>📊 Resultados</h2>
+
+
+<p>
+    💶 Dinero aportado por ti:
+    <strong id="ahorro"></strong>
+</p>
+
+
+<p>
+    📈 Ganancias acumuladas:
+    <strong id="ganancias"></strong>
+</p>
+
+
+<p>
+    💰 Patrimonio total:
+    <strong id="total"></strong>
+</p>
+
+
+<p>
+    📊 Rentabilidad anual esperada del patrimonio:
+    <strong id="rentabilidadPatrimonio"></strong>
+</p>
+
+
+<p>
+    💶 Sueldo mensual posible:
+    <strong id="sueldoFinal"></strong>
+</p>
+
+
+<p>
+    💶 Sueldo equivalente en euros de hoy:
+    <strong id="sueldoReal"></strong>
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- RESULTADOS POR INVERSIÓN -->
+<!-- ===================================================== -->
+
+<h2>📁 Resultado de cada inversión</h2>
+
+<div id="resultadosInversiones"></div>
+
+
+
+<!-- ===================================================== -->
+<!-- INDEPENDENCIA FINANCIERA -->
+<!-- ===================================================== -->
+
+<h2>🎯 Independencia financiera</h2>
+
+
+<p>
+    💰 Patrimonio necesario entonces:
+    <strong id="objetivo"></strong>
+</p>
+
+
+<p>
+    💶 Sueldo necesario entonces:
+    <strong id="sueldoObjetivoFuturo"></strong>
+</p>
+
+
+<p>
+    📊 Rentabilidad esperada en ese momento:
+    <strong id="rentabilidadObjetivo"></strong>
+</p>
+
+
+<p>
+    ⏳ Tiempo necesario:
+    <strong id="tiempo"></strong>
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- GRÁFICA PATRIMONIO -->
+<!-- ===================================================== -->
+
+<h2>📈 Evolución del patrimonio</h2>
+
+<div
+    style="
+        width:100%;
+        max-width:900px;
+    "
+>
+
+    <canvas id="graficaPatrimonio"></canvas>
+
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- GRÁFICA SUELDO -->
+<!-- ===================================================== -->
+
+<h2>💶 Evolución del sueldo posible</h2>
+
+<div
+    style="
+        width:100%;
+        max-width:900px;
+    "
+>
+
+    <canvas id="graficaSueldo"></canvas>
+
+</div>
+
+
+
+<script>
+
+
+// =====================================================
+// VARIABLES GLOBALES
+// =====================================================
+
+let graficaPatrimonio = null;
+
+let graficaSueldo = null;
+
+
+
+// =====================================================
+// FUNCIÓN PRINCIPAL
+// =====================================================
+
+function calcular() {
+
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anos"
+            ).value
+        );
+
+
+    const sueldoDeseado =
+        Number(
+            document.getElementById(
+                "sueldo"
+            ).value
+        );
+
+
+    const inflacion =
+        Number(
+            document.getElementById(
+                "inflacion"
+            ).value
+        );
+
+
+    const resultado =
+        simular(
+            anos
+        );
+
+
+
+    // -------------------------------------------------
+    // RESULTADOS
+    // -------------------------------------------------
+
+    document.getElementById(
+        "ahorro"
+    ).innerText =
+        formatearNumero(
+            resultado.totalAportado
+        )
+        + " €";
+
+
+    document.getElementById(
+        "ganancias"
+    ).innerText =
+        formatearNumero(
+            resultado.totalGanancias
+        )
+        + " €";
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+        formatearNumero(
+            resultado.patrimonioTotal
+        )
+        + " €";
+
+
+    document.getElementById(
+        "rentabilidadPatrimonio"
+    ).innerText =
+        resultado.rentabilidadPatrimonio
+            .toFixed(2)
+        + " %";
+
+
+
+    // -------------------------------------------------
+    // SUELDO POSIBLE
+    // -------------------------------------------------
+
+    const sueldoFinal =
+        resultado.rendimientoAnual /
+        12;
+
+
+    document.getElementById(
+        "sueldoFinal"
+    ).innerText =
+        formatearNumero(
+            sueldoFinal
+        )
+        + " €";
+
+
+
+    // -------------------------------------------------
+    // SUELDO EN EUROS DE HOY
+    // -------------------------------------------------
+
+    const factorInflacion =
+        Math.pow(
+            1 +
+            inflacion / 100,
+            anos
+        );
+
+
+    const sueldoReal =
+        sueldoFinal /
+        factorInflacion;
+
+
+    document.getElementById(
+        "sueldoReal"
+    ).innerText =
+        formatearNumero(
+            sueldoReal
+        )
+        + " €";
+
+
+
+    // -------------------------------------------------
+    // RESULTADOS POR INVERSIÓN
+    // -------------------------------------------------
+
+    let html = "";
+
+
+    resultado.inversiones.forEach(
+        function(inversion) {
+
+
+            html += `
+
+                <h3>
+                    💼 ${inversion.nombre}
+                </h3>
+
+                <p>
+                    💶 Dinero aportado por ti:
+                    <strong>
+                        ${formatearNumero(
+                            inversion.aportado
+                        )} €
+                    </strong>
+                </p>
+
+            `;
+
+
+            if (
+                inversion.recibidoFP > 0
+            ) {
+
+                html += `
+
+                    <p>
+                        🔄 Beneficios recibidos:
+                        <strong>
+                            ${formatearNumero(
+                                inversion.recibidoFP
+                            )} €
+                        </strong>
+                    </p>
+
+                `;
+
+            }
+
+
+            if (
+                inversion.enviadoFP > 0
+            ) {
+
+                html += `
+
+                    <p>
+                        🔄 Beneficios enviados:
+                        <strong>
+                            ${formatearNumero(
+                                inversion.enviadoFP
+                            )} €
+                        </strong>
+                    </p>
+
+                `;
+
+            }
+
+
+            html += `
+
+                <p>
+                    📈 Ganancias:
+                    <strong>
+                        ${formatearNumero(
+                            inversion.ganancias
+                        )} €
+                    </strong>
+                </p>
+
+                <p>
+                    💰 Patrimonio:
+                    <strong>
+                        ${formatearNumero(
+                            inversion.patrimonio
+                        )} €
+                    </strong>
+                </p>
+
+                <p>
+                    📊 Rentabilidad:
+                    <strong>
+                        ${inversion.rentabilidad.toFixed(2)}
+                        %
+                    </strong>
+                </p>
+
+                <p>
+                    💶 Rendimiento anual esperado:
+                    <strong>
+                        ${formatearNumero(
+                            inversion.rendimientoAnual
+                        )} €
+                    </strong>
+                </p>
+
+            `;
+
+        }
+    );
+
+
+    document.getElementById(
+        "resultadosInversiones"
+    ).innerHTML =
+        html;
+
+
+
+    // -------------------------------------------------
+    // INDEPENDENCIA FINANCIERA
+    // -------------------------------------------------
+
+    const independencia =
+        calcularIndependencia(
+            sueldoDeseado,
+            inflacion
+        );
+
+
+    document.getElementById(
+        "objetivo"
+    ).innerText =
+        formatearNumero(
+            independencia.patrimonioObjetivo
+        )
+        + " €";
+
+
+    document.getElementById(
+        "sueldoObjetivoFuturo"
+    ).innerText =
+        formatearNumero(
+            independencia.sueldoFuturo
+        )
+        + " €";
+
+
+    document.getElementById(
+        "rentabilidadObjetivo"
+    ).innerText =
+        independencia.rentabilidad
+            .toFixed(2)
+        + " %";
+
+
+    if (
+        independencia.meses >= 1200
+    ) {
+
+        document.getElementById(
+            "tiempo"
+        ).innerText =
+            "Más de 100 años";
+
+    } else {
+
+        document.getElementById(
+            "tiempo"
+        ).innerText =
+            (
+                independencia.meses /
+                12
+            ).toFixed(1)
+            + " años";
+
+    }
+
+
+
+    // =================================================
+    // ACTUALIZAR GRÁFICAS
+    // =================================================
+
+    crearGraficaPatrimonio();
+
+    crearGraficaSueldo();
+
+}
+
+
+
+// =====================================================
+// GRÁFICA DE PATRIMONIO
+// =====================================================
+
+function crearGraficaPatrimonio() {
+
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anos"
+            ).value
+        );
+
+
+    const datos =
+        obtenerDatosGrafica(
+            anos
+        );
+
+
+    const canvas =
+        document.getElementById(
+            "graficaPatrimonio"
+        );
+
+
+    if (
+        graficaPatrimonio
+    ) {
+
+        graficaPatrimonio.destroy();
+
+    }
+
+
+    graficaPatrimonio =
+        new Chart(
+            canvas,
+            {
+
+                type:
+                    "line",
+
+
+                data: {
+
+                    labels:
+                        datos.anos,
+
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Patrimonio total",
+
+                            data:
+                                datos.total,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                3
+
+                        },
+
+
+                        {
+
+                            label:
+                                document.getElementById(
+                                    "nombre1"
+                                ).value,
+
+                            data:
+                                datos.cartera1,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                2
+
+                        },
+
+
+                        {
+
+                            label:
+                                document.getElementById(
+                                    "nombre2"
+                                ).value,
+
+                            data:
+                                datos.fp,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                2
+
+                        },
+
+
+                        {
+
+                            label:
+                                document.getElementById(
+                                    "nombre3"
+                                ).value,
+
+                            data:
+                                datos.cartera3,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                2
+
+                        }
+
+                    ]
+
+                },
+
+
+                options: {
+
+                    responsive:
+                        true,
+
+
+                    interaction: {
+
+                        mode:
+                            "index",
+
+                        intersect:
+                            false
+
+                    },
+
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero:
+                                true,
+
+
+                            ticks: {
+
+                                callback:
+                                    function(value) {
+
+                                        return (
+                                            formatearNumero(
+                                                value
+                                            )
+                                            + " €"
+                                        );
+
+                                    }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+}
+
+
+
+// =====================================================
+// GRÁFICA DE SUELDO
+// =====================================================
+
+function crearGraficaSueldo() {
+
+
+    const anos =
+        Number(
+            document.getElementById(
+                "anos"
+            ).value
+        );
+
+
+    const inflacion =
+        Number(
+            document.getElementById(
+                "inflacion"
+            ).value
+        );
+
+
+    const sueldoDeseado =
+        Number(
+            document.getElementById(
+                "sueldo"
+            ).value
+        );
+
+
+    const datos =
+        obtenerDatosSueldo(
+            anos,
+            inflacion
+        );
+
+
+    const canvas =
+        document.getElementById(
+            "graficaSueldo"
+        );
+
+
+    if (
+        graficaSueldo
+    ) {
+
+        graficaSueldo.destroy();
+
+    }
+
+
+    graficaSueldo =
+        new Chart(
+            canvas,
+            {
+
+                type:
+                    "line",
+
+
+                data: {
+
+                    labels:
+                        datos.anos,
+
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Sueldo mensual posible",
+
+                            data:
+                                datos.nominal,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                3
+
+                        },
+
+
+                        {
+
+                            label:
+                                "Sueldo en euros de hoy",
+
+                            data:
+                                datos.real,
+
+                            tension:
+                                0.2,
+
+                            borderWidth:
+                                3,
+
+                            borderDash:
+                                [6, 6]
+
+                        },
+
+
+                        {
+
+                            label:
+                                "Objetivo: sueldo de hoy",
+
+                            data:
+                                datos.objetivo,
+
+                            tension:
+                                0,
+
+                            borderWidth:
+                                2,
+
+                            borderDash:
+                                [10, 5]
+
+                        }
+
+                    ]
+
+                },
+
+
+                options: {
+
+                    responsive:
+                        true,
+
+
+                    interaction: {
+
+                        mode:
+                            "index",
+
+                        intersect:
+                            false
+
+                    },
+
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero:
+                                true,
+
+
+                            ticks: {
+
+                                callback:
+                                    function(value) {
+
+                                        return (
+                                            formatearNumero(
+                                                value
+                                            )
+                                            + " €"
+                                        );
+
+                                    }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+}
+
+
+
+// =====================================================
+// DATOS DE LA GRÁFICA DE PATRIMONIO
+// =====================================================
+
+function obtenerDatosGrafica(
+    anos
+) {
+
+
+    const etiquetas = [];
+
+    const total = [];
+
+    const cartera1 = [];
+
+    const fp = [];
+
+    const cartera3 = [];
+
+
+    for (
+        let ano = 0;
+        ano <= anos;
+        ano++
+    ) {
+
+
+        const resultado =
+            simular(
+                ano
+            );
+
+
+        etiquetas.push(
+            ano
+        );
+
+
+        total.push(
+            resultado.patrimonioTotal
+        );
+
+
+        cartera1.push(
+            resultado.inversiones[0]
+                .patrimonio
+        );
+
+
+        fp.push(
+            resultado.inversiones[1]
+                .patrimonio
+        );
+
+
+        cartera3.push(
+            resultado.inversiones[2]
+                .patrimonio
+        );
+
+    }
+
+
+    return {
+
+        anos:
+            etiquetas,
+
+        total:
+            total,
+
+        cartera1:
+            cartera1,
+
+        fp:
+            fp,
+
+        cartera3:
+            cartera3
+
+    };
+
+}
+
+
+
+// =====================================================
+// DATOS DE LA GRÁFICA DEL SUELDO
+// =====================================================
+
+function obtenerDatosSueldo(
+    anos,
+    inflacion
+) {
+
+
+    const etiquetas = [];
+
+    const nominal = [];
+
+    const real = [];
+
+    const objetivo = [];
+
+
+    const sueldoDeseado =
+        Number(
+            document.getElementById(
+                "sueldo"
+            ).value
+        );
+
+
+    for (
+        let ano = 0;
+        ano <= anos;
+        ano++
+    ) {
+
+
+        const resultado =
+            simular(
+                ano
+            );
+
+
+        const sueldoNominal =
+            resultado.rendimientoAnual /
+            12;
+
+
+        const factorInflacion =
+            Math.pow(
+                1 +
+                inflacion / 100,
+                ano
+            );
+
+
+        const sueldoReal =
+            sueldoNominal /
+            factorInflacion;
+
+
+        etiquetas.push(
+            ano
+        );
+
+
+        nominal.push(
+            sueldoNominal
+        );
+
+
+        real.push(
+            sueldoReal
+        );
+
+
+        objetivo.push(
+            sueldoDeseado
+        );
+
+    }
+
+
+    return {
+
+        anos:
+            etiquetas,
+
+        nominal:
+            nominal,
+
+        real:
+            real,
+
+        objetivo:
+            objetivo
+
+    };
+
+}
+
+
+
+// =====================================================
+// SIMULACIÓN
+// =====================================================
+
+function simular(
+    anos
+) {
+
+
+    const meses =
+        anos * 12;
+
+
+    let cartera1 =
+        crearInversion(1);
+
+
+    let fp =
+        crearInversion(2);
+
+
+    let cartera3 =
+        crearInversion(3);
+
+
+    const porcentajeCartera1 =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                Number(
+                    document.getElementById(
+                        "destino1"
+                    ).value
+                )
+            )
+        );
+
+
+    const porcentajeCartera3 =
+        100 -
+        porcentajeCartera1;
+
+
+    let capitalFP =
+        fp.inicial;
+
+
+    let aportadoFP =
+        fp.inicial;
+
+
+    let beneficiosAñoFP =
+        0;
+
+
+    let totalBeneficiosFP =
+        0;
+
+
+
+    // =================================================
+    // SIMULACIÓN MES A MES
+    // =================================================
+
+    for (
+        let mes = 1;
+        mes <= meses;
+        mes++
+    ) {
+
+
+        // =============================================
+        // CARTERA 1
+        // =============================================
+
+        cartera1.patrimonio *=
+            (
+                1 +
+                cartera1.rentabilidadMensual
+            );
+
+
+        const aportacion1 =
+            obtenerAportacion(
+                cartera1,
+                mes
+            );
+
+
+        cartera1.patrimonio +=
+            aportacion1;
+
+
+        cartera1.aportado +=
+            aportacion1;
+
+
+
+        // =============================================
+        // CARTERA 3
+        // =============================================
+
+        cartera3.patrimonio *=
+            (
+                1 +
+                cartera3.rentabilidadMensual
+            );
+
+
+        const aportacion3 =
+            obtenerAportacion(
+                cartera3,
+                mes
+            );
+
+
+        cartera3.patrimonio +=
+            aportacion3;
+
+
+        cartera3.aportado +=
+            aportacion3;
+
+
+
+        // =============================================
+        // FINANCIAL PARTNERS
+        // =============================================
+
+        const beneficioMesFP =
+            capitalFP *
+            fp.rentabilidadMensual;
+
+
+        beneficiosAñoFP +=
+            beneficioMesFP;
+
+
+        totalBeneficiosFP +=
+            beneficioMesFP;
+
+
+        const objetoFP = {
+
+            ...fp,
+
+            patrimonio:
+                capitalFP,
+
+            aportado:
+                aportadoFP
+
+        };
+
+
+        const aportacionFP =
+            obtenerAportacion(
+                objetoFP,
+                mes
+            );
+
+
+        capitalFP +=
+            aportacionFP;
+
+
+        aportadoFP +=
+            aportacionFP;
+
+
+
+        // =============================================
+        // FIN DE AÑO
+        // =============================================
+
+        if (
+            mes % 12 === 0
+        ) {
+
+
+            const beneficioCartera1 =
+                beneficiosAñoFP *
+                (
+                    porcentajeCartera1 /
+                    100
+                );
+
+
+            const beneficioCartera3 =
+                beneficiosAñoFP *
+                (
+                    porcentajeCartera3 /
+                    100
+                );
+
+
+            cartera1.patrimonio +=
+                beneficioCartera1;
+
+
+            cartera3.patrimonio +=
+                beneficioCartera3;
+
+
+            cartera1.recibidoFP +=
+                beneficioCartera1;
+
+
+            cartera3.recibidoFP +=
+                beneficioCartera3;
+
+
+            beneficiosAñoFP =
+                0;
+
+        }
+
+    }
+
+
+
+    // =================================================
+    // RESULTADOS FP
+    // =================================================
+
+    fp.patrimonio =
+        capitalFP;
+
+
+    fp.aportado =
+        aportadoFP;
+
+
+    fp.ganancias =
+        totalBeneficiosFP;
+
+
+    fp.enviadoFP =
+        totalBeneficiosFP;
+
+
+
+    // =================================================
+    // GANANCIAS
+    // =================================================
+
+    cartera1.ganancias =
+        cartera1.patrimonio -
+        cartera1.aportado -
+        cartera1.recibidoFP;
+
+
+    cartera3.ganancias =
+        cartera3.patrimonio -
+        cartera3.aportado -
+        cartera3.recibidoFP;
+
+
+
+    // =================================================
+    // RENDIMIENTO ANUAL
+    // =================================================
+
+    cartera1.rendimientoAnual =
+        cartera1.patrimonio *
+        cartera1.rentabilidad /
+        100;
+
+
+    cartera3.rendimientoAnual =
+        cartera3.patrimonio *
+        cartera3.rentabilidad /
+        100;
+
+
+    fp.rendimientoAnual =
+        fp.patrimonio *
+        fp.rentabilidad /
+        100;
+
+
+
+    // =================================================
+    // PATRIMONIO TOTAL
+    // =================================================
+
+    const patrimonioTotal =
+        cartera1.patrimonio +
+        fp.patrimonio +
+        cartera3.patrimonio;
+
+
+
+    // =================================================
+    // RENDIMIENTO TOTAL
+    // =================================================
+
+    const rendimientoAnual =
+        cartera1.rendimientoAnual +
+        fp.rendimientoAnual +
+        cartera3.rendimientoAnual;
+
+
+
+    // =================================================
+    // RENTABILIDAD MEDIA
+    // =================================================
+
+    let rentabilidadPatrimonio =
+        0;
+
+
+    if (
+        patrimonioTotal > 0
+    ) {
+
+        rentabilidadPatrimonio =
+            rendimientoAnual /
+            patrimonioTotal *
+            100;
+
+    }
+
+
+
+    // =================================================
+    // APORTACIONES
+    // =================================================
+
+    const totalAportado =
+        cartera1.aportado +
+        fp.aportado +
+        cartera3.aportado;
+
+
+
+    // =================================================
+    // GANANCIAS
+    // =================================================
+
+    const totalGanancias =
+        patrimonioTotal -
+        totalAportado;
+
+
+
+    return {
+
+        patrimonioTotal:
+            patrimonioTotal,
+
+        totalAportado:
+            totalAportado,
+
+        totalGanancias:
+            totalGanancias,
+
+        rendimientoAnual:
+            rendimientoAnual,
+
+        rentabilidadPatrimonio:
+            rentabilidadPatrimonio,
+
+        inversiones: [
+
+            cartera1,
+            fp,
+            cartera3
+
+        ]
+
+    };
+
+}
+
+
+
+// =====================================================
+// CREAR INVERSIÓN
+// =====================================================
+
+function crearInversion(
+    numero
+) {
+
+
+    const inicial =
+        Number(
+            document.getElementById(
+                "inicial" + numero
+            ).value
+        );
+
+
+    const aportacion =
+        Number(
+            document.getElementById(
+                "aportacion" + numero
+            ).value
+        );
+
+
+    const frecuencia =
+        document.getElementById(
+            "frecuencia" + numero
+        ).value;
+
+
+    const rentabilidad =
+        Number(
+            document.getElementById(
+                "rentabilidad" + numero
+            ).value
+        );
+
+
+    const limite =
+        Number(
+            document.getElementById(
+                "limite" + numero
+            ).value
+        );
+
+
+    return {
+
+        nombre:
+            document.getElementById(
+                "nombre" + numero
+            ).value,
+
+        inicial:
+            inicial,
+
+        aportacion:
+            aportacion,
+
+        frecuencia:
+            frecuencia,
+
+        rentabilidad:
+            rentabilidad,
+
+        rentabilidadMensual:
+            rentabilidad /
+            100 /
+            12,
+
+        limite:
+            limite,
+
+        patrimonio:
+            inicial,
+
+        aportado:
+            inicial,
+
+        ganancias:
+            0,
+
+        recibidoFP:
+            0,
+
+        enviadoFP:
+            0,
+
+        rendimientoAnual:
+            0
+
+    };
+
+}
+
+
+
+// =====================================================
+// APORTACIONES
+// =====================================================
+
+function obtenerAportacion(
+    inversion,
+    mes
+) {
+
+
+    let tocaAportar =
+        false;
+
+
+    if (
+        inversion.frecuencia ===
+        "mensual"
+    ) {
+
+        tocaAportar =
+            true;
+
+    }
+
+
+    if (
+        inversion.frecuencia ===
+        "anual" &&
+        mes % 12 === 0
+    ) {
+
+        tocaAportar =
+            true;
+
+    }
+
+
+    if (
+        !tocaAportar
+    ) {
+
+        return 0;
+
+    }
+
+
+    if (
+        inversion.limite <= 0
+    ) {
+
+        return inversion.aportacion;
+
+    }
+
+
+    if (
+        inversion.aportado >=
+        inversion.limite
+    ) {
+
+        return 0;
+
+    }
+
+
+    const disponible =
+        inversion.limite -
+        inversion.aportado;
+
+
+    return Math.min(
+        inversion.aportacion,
+        disponible
+    );
+
+}
+
+
+
+// =====================================================
+// INDEPENDENCIA FINANCIERA
+// =====================================================
+
+function calcularIndependencia(
+    sueldoDeseado,
+    inflacion
+) {
+
+
+    for (
+        let anos = 1;
+        anos <= 100;
+        anos++
+    ) {
+
+
+        const resultado =
+            simular(
+                anos
+            );
+
+
+        const sueldoFuturo =
+            sueldoDeseado *
+            Math.pow(
+                1 +
+                inflacion / 100,
+                anos
+            );
+
+
+        const rendimientoAnual =
+            resultado.rendimientoAnual;
+
+
+        if (
+            rendimientoAnual >=
+            sueldoFuturo * 12
+        ) {
+
+
+            return {
+
+                meses:
+                    anos * 12,
+
+                patrimonioObjetivo:
+                    sueldoFuturo *
+                    12 /
+                    (
+                        resultado.rentabilidadPatrimonio /
+                        100
+                    ),
+
+                sueldoFuturo:
+                    sueldoFuturo,
+
+                rentabilidad:
+                    resultado.rentabilidadPatrimonio
+
+            };
+
+        }
+
+    }
+
+
+
+    const resultado =
+        simular(
+            100
+        );
+
+
+    const sueldoFuturo =
+        sueldoDeseado *
+        Math.pow(
+            1 +
+            inflacion / 100,
+            100
+        );
+
+
+    return {
+
+        meses:
+            1200,
+
+        patrimonioObjetivo:
+            sueldoFuturo *
+            12 /
+            (
+                resultado.rentabilidadPatrimonio /
+                100
+            ),
+
+        sueldoFuturo:
+            sueldoFuturo,
+
+        rentabilidad:
+            resultado.rentabilidadPatrimonio
+
+    };
+
+}
+
+
+
+// =====================================================
+// FORMATO DE NÚMEROS
+// =====================================================
+
+function formatearNumero(
+    numero
+) {
+
+    return Math.round(
+        numero
+    ).toLocaleString(
+        "es-ES"
+    );
+
+}
+
+
+
+// =====================================================
+// CALCULAR AL CARGAR
+// =====================================================
+
+calcular();
+
+</script>
+
+</body>
+
+</html>
+```
